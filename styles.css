@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-2: #22c55e;
+  --danger: #ef4444;
+  --ring: 0 0 0 2px rgba(59, 130, 246, 0.35);
+  --radius: 12px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
+    sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 10% -10%, #1f2937, transparent),
+    var(--bg);
+  line-height: 1.4;
+}
+.container {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.app-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.4px;
+}
+.now {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+#current-time {
+  font-variant-numeric: tabular-nums;
+  font-size: 20px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+}
+
+.panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.panel-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+.field-row input[type="time"],
+.field-row input[type="text"],
+.field-row select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+.field-row input:focus,
+.field-row select:focus {
+  box-shadow: var(--ring);
+  border-color: var(--accent);
+}
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+.weekdays label {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: var(--muted);
+}
+.weekdays input {
+  transform: translateY(1px);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+button {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+  box-shadow: var(--ring);
+}
+.btn-primary {
+  border-color: rgba(59, 130, 246, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.9),
+    rgba(59, 130, 246, 0.6)
+  );
+}
+.btn-danger {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(239, 68, 68, 0.9),
+    rgba(239, 68, 68, 0.6)
+  );
+}
+
+.alarm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.alarm {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 12px;
+  padding: 10px;
+}
+.alarm .row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.alarm .left {
+  width: 36px;
+  display: flex;
+  justify-content: center;
+}
+.alarm .mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.alarm .time {
+  font-variant-numeric: tabular-nums;
+  font-size: 18px;
+}
+.alarm .meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+.alarm .right {
+  display: flex;
+  gap: 8px;
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+  .field-row label {
+    font-size: 12px;
+    color: var(--muted);
+  }
+}
+h1.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+.clock-icon {
+  width: 28px; 
+  height: 28px; 
+  display: block; 
+}
