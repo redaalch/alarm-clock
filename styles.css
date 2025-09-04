@@ -2,15 +2,16 @@
   box-sizing: border-box;
 }
 :root {
-  --bg: #0f172a;
-  --panel: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #3b82f6;
-  --accent-2: #22c55e;
+  --bg: #12100e;
+  --panel: #1a1714;
+  --text: #f5f2eb;
+  --muted: #c6bdb1;
+  --accent: #d4a373;
+  --accent-2: #a47551;
   --danger: #ef4444;
-  --ring: 0 0 0 2px rgba(59, 130, 246, 0.35);
-  --radius: 12px;
+  --ring: 0 0 0 2px rgba(212, 163, 115, 0.35);
+
+  --bg-grad: #2a221b;
 }
 html,
 body {
@@ -21,8 +22,13 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
     sans-serif;
   color: var(--text);
-  background: radial-gradient(1200px 600px at 10% -10%, #1f2937, transparent),
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      var(--bg-grad),
+      transparent
+    ),
     var(--bg);
+
   line-height: 1.4;
 }
 .container {
@@ -145,13 +151,14 @@ button:focus {
   box-shadow: var(--ring);
 }
 .btn-primary {
-  border-color: rgba(59, 130, 246, 0.8);
+  border-color: rgba(212, 163, 115, 0.8);
   background: linear-gradient(
     180deg,
-    rgba(59, 130, 246, 0.9),
-    rgba(59, 130, 246, 0.6)
+    rgba(212, 163, 115, 0.9),
+    rgba(212, 163, 115, 0.6)
   );
 }
+
 .btn-danger {
   border-color: rgba(239, 68, 68, 0.6);
   background: linear-gradient(
@@ -221,7 +228,8 @@ h1.brand {
 }
 
 .clock-icon {
-  width: 28px; 
-  height: 28px; 
-  display: block; 
+  width: 28px;
+  height: 28px;
+  display: block;
 }
+#clock path:nth-of-type(4) { fill: var(--accent) !important; }
